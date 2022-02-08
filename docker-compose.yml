@@ -1,0 +1,63 @@
+version: "3.8"
+services:
+  database:
+    container_name: database
+    image: postgres
+    restart: always
+    env_file:
+      - ./env/database.env
+    volumes:
+      - "postgres:/data/postgres"
+    ports:
+      - "5432:5432"
+  # pgadmin:
+  #   container_name: pgadmin4_container
+  #   image: dpage/pgadmin4
+  #   restart: always
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@admin.com
+  #     PGADMIN_DEFAULT_PASSWORD: root
+  #   ports:
+  #     - "5050:80"
+  app_nginx:
+    container_name: app_nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./nginx/configs/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    restart: always
+    depends_on:
+      - database
+    env_file:
+      - ./env/backend.env
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - ./env/frontend.env
+  pgbackups:
+    container_name: Backup
+    image: prodrigestivill/postgres-backup-local
+    restart: always
+    volumes:
+      - ./backup:/backups
+    depends_on:
+      - database
+    env_file:
+      - ./env/database_backup.env
+volumes:
+  postgres: null

@@ -1,0 +1,48 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "frontend",
+      "hostname": "frontend",
+      "essential": false,
+      "image": "368460662487.dkr.ecr.eu-south-1.amazonaws.com/ecr_frontend:latest",
+      "memory": 300,
+      "environment": [
+        {
+          "name": "REACT_APP_BASE_URL",
+          "value": "/api"
+        }
+      ]
+    },
+    {
+      "name": "backend",
+      "hostname": "backend",
+      "essential": false,
+      "image": "368460662487.dkr.ecr.eu-south-1.amazonaws.com/ecr_backend:latest",
+      "environment": [
+        {
+          "name": "SERVER_PORT",
+          "value": "8080"
+        }
+      ],
+      "memory": 300
+    },
+    {
+      "name": "nginx",
+      "hostname": "nginx",
+      "image": "368460662487.dkr.ecr.eu-south-1.amazonaws.com/ecr_nginx:latest",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        "backend",
+        "frontend"
+      ]
+    }
+  ]
+}
