@@ -1,0 +1,956 @@
+{
+	"info": {
+		"_postman_id": "41985f1f-cac3-4d1a-b235-36f1da1ef795",
+		"name": "APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"test@email.it\",\n\t\"password\" : \"MarioS0D0123!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstname\": \"Nicholas\",\n    \"lastname\": \"Fialdo\",\n    \"email\": \"ddjnick04@gmail.com\",\n    \"password\": \"MarioS0D22332!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/user/466f8ce4-67d7-4d15-9b41-206e5e43e0ef",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"466f8ce4-67d7-4d15-9b41-206e5e43e0ef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get current logged info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/user/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Workers",
+					"item": [
+						{
+							"name": "Add worker",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"projectId\": 2,\n    \"employeeId\": \"9d3e7c64-c7ba-4b24-a13a-52364f774006\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project/worker",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"worker"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Worker",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"projectId\": 6,\n    \"employeeId\": \"9d3e7c64-c7ba-4b24-a13a-52364f774006\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project/worker",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"worker"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Hours",
+					"item": [
+						{
+							"name": "Get Project Hours",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/project/hours/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"hours",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add hours",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"projectId\": 2,\n    \"workerId\": \"9d3e7c64-c7ba-4b24-a13a-52364f774006\",\n    \"hours\": {\"boh\": \"b\"}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project/hours",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"hours"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit hours",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"projectId\": 2,\n    \"workerId\": \"9d3e7c64-c7ba-4b24-a13a-52364f774006\",\n    \"hours\": {\"boh\": \"b\"}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project/hours",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"hours"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notes",
+					"item": [
+						{
+							"name": "Get notes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/project/notes/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"notes",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create notes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"projectID\": 2,\n    \"description\": \"prova\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project/note",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"note"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit note",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"noteID\": 2,\n    \"userID\": \"466f8ce4-67d7-4d15-9b41-206e5e43e0ef\",\n    \"description\": \"adasdad\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project/note",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"note"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete note",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/project/note/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"note",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/project/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get projects",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/project",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"nico4\",\n    \"startAt\": \"Now\",\n    \"locality\": \"Lucca\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/project",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Project",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"nico\",\n    \"startAt\": \"Now\",\n    \"locality\": \"Boh\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/project/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"project",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get company Project",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/company/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"company",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Employees",
+					"item": [
+						{
+							"name": "Get employees",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/company/employees/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"company",
+										"employees",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add employee",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employeeId\": \"9d3e7c64-c7ba-4b24-a13a-52364f774006\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/company/add-employee/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"company",
+										"add-employee",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete employee",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"employeeId\": \"1d24cccc-6ab8-436d-9a28-40274ec8684e\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/company/delete-employee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"company",
+										"delete-employee"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Add moderator",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"1d24cccc-6ab8-436d-9a28-40274ec8684e\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/company/add-moderator",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"company",
+										"add-moderator"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete moderator",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"1d24cccc-6ab8-436d-9a28-40274ec8684e\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/company/delete-moderator",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"company",
+										"delete-moderator"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Projects",
+					"item": [
+						{
+							"name": "Get project workers",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"nico\",\n    \"startAt\": \"Now\",\n    \"locality\": \"Boh\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project/workers/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project",
+										"workers",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test6\",\n    \"projectsLimit\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all companies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/company/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"company",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete company",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/company/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"company",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "TOken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkM2U3YzY0LWM3YmEtNGIyNC1hMTNhLTUyMzY0Zjc3NDAwNiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMTAxNDgxMCwiZXhwIjoxNjIxMDM2NDEwLCJpc3MiOiJUZXN0In0.B8xIF0_W-lyAB89N9sI9EsYsxaAhl-JPAK16LXF2tJU"
+		}
+	]
+}
